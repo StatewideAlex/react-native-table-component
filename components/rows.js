@@ -24,6 +24,7 @@ export class Row extends Component {
         {data.map((item, i) => {
           const flex = flexArr && flexArr[i];
           const wth = widthArr && widthArr[i];
+          const fullTextStyle = {...(cellTextStyle && cellTextStyle(item)), ...textStyle}
           return (
             <Cell
               key={i}
@@ -31,7 +32,7 @@ export class Row extends Component {
               width={wth}
               height={height}
               flex={flex}
-              textStyle={[cellTextStyle && cellTextStyle(item), textStyle]}
+              textStyle={fullTextStyle}
               {...props}
             />
           );
